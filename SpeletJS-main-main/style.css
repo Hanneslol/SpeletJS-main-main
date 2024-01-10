@@ -53,9 +53,13 @@ body{
     gap: 5px;
 }
 
-.flag {
+.flagSwe, .flagEng {
   height: 25px;
   margin: 5px;
+}
+
+.flagSwe, .flagEng:hover {
+  cursor: pointer;
 }
 
 .logo{
@@ -468,5 +472,3 @@ section{
     margin-top: 1rem;
     pointer-events: none;
   }
-  
-
