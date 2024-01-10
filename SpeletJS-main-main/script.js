@@ -10,7 +10,7 @@ optionImages.forEach((image, index) => {
   image.addEventListener('click', (e) => {
     image.classList.add('active');
 
-    result.textContent = 'Wait...';
+    result.textContent = 'Wait........';
 
     // Loop through each option image again
     optionImages.forEach((image2, index2) => {
