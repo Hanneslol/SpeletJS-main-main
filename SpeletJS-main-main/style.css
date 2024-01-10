@@ -35,6 +35,12 @@ body{
     font-weight: 700;
 }
 
+.nav {
+  display: flex;
+  flex-direction: column;
+  
+}
+
 .navmenu{
     display:flex;
     list-style: none;
@@ -45,6 +51,11 @@ body{
     display:flex;
     list-style: none;
     gap: 5px;
+}
+
+.flag {
+  height: 25px;
+  margin: 5px;
 }
 
 .logo{
