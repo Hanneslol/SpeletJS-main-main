@@ -4,14 +4,36 @@ const userResult = document.querySelector('.user_result img');
 const cpuResult = document.querySelector('.cpu_result img');
 const result = document.querySelector('.result');
 const optionImages = document.querySelectorAll('.option_image');
+const sweFlag = document.getElementById('swe');
+const engFlag = document.getElementById('eng');
+
+
+sweFlag.addEventListener('click', () =>{
+
+
+  sweFlag.classList.add('active');
+  engFlag.classList.remove('active');
+  console.log('SweFlag');
+})
+
+engFlag.addEventListener('click', () =>{
+
+  engFlag.classList.add('active');
+  sweFlag.classList.remove('active');
+  console.log('engFlag');
+});
 
 // Loop through each option image element
 optionImages.forEach((image, index) => {
   image.addEventListener('click', (e) => {
     image.classList.add('active');
+    if(sweFlag.classList.contains('active')){
+      result.textContent = 'Vänta........';
+    }else{
 
-    result.textContent = 'Wait........';
-
+      result.textContent = 'Wait........';
+    }
+    
     // Loop through each option image again
     optionImages.forEach((image2, index2) => {
       // If the current index doesn't match the clicked index
@@ -56,12 +78,31 @@ optionImages.forEach((image, index) => {
         SR: 'Cpu',
         SP: 'User',
       };
+      const utfall = {
+        RR: 'Oavgjort',
+        RP: 'Datorn',
+        RS: 'Du',
+        PP: 'Oavgjort',
+        PR: 'Du',
+        PS: 'Datorn',
+        SS: 'Oavgjort',
+        SR: 'Datorn',
+        SP: 'Du',
+      };
 
       // Look up the outcome value based on user and CPU options
-      const outComeValue = outcomes[userValue + cpuValue];
+      let outComeValueEng = outcomes[userValue + cpuValue];
+      let outComeValueSwe = utfall[userValue + cpuValue];
 
       // Display the result
-      result.textContent = userValue === cpuValue ? 'Match Draw' : `${outComeValue} Won!!`;
-    }, 2500);
+      if(sweFlag.classList.contains('active')){
+        result.textContent = userValue === cpuValue ? 'Oavgjort' : `${outComeValueSwe} vann!!`;
+        utfall[userValue + cpuValue];
+      }else{
+
+        result.textContent = userValue === cpuValue ? 'Match Draw' : `${outComeValueEng} won!!`;
+        outcomes[userValue + cpuValue];
+      }
+      }, 2500);
   });
 });
