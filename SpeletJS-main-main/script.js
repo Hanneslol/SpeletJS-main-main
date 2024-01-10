@@ -17,13 +17,15 @@ optionImages.forEach((image, index) => {
     optionImages.forEach((image2, index2) => {
       // If the current index doesn't match the clicked index
       // Remove the "active" class from the other option images
-      index !== index2 && image2.classList.remove('active');
+      if (index !== index2) {
+        image2.classList.remove('active');
+      }
     });
 
     gameContainer.classList.add('start');
 
     // Set a timeout to delay the result calculation
-    setTimeout = () => {
+    setTimeout(() => {
       gameContainer.classList.remove('start');
 
       // Get the source of the clicked option image
@@ -62,5 +64,5 @@ optionImages.forEach((image, index) => {
       // Display the result
       result.textContent = userValue === cpuValue ? 'Match Draw' : `${outComeValue} Won!!`;
     }, 2500);
-  // });
+  });
 });
